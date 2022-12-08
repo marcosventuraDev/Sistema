@@ -23,7 +23,7 @@ public class ConnectionFactory {
            
         
         } catch (Exception error){
-            JOptionPane.showMessageDialog(null,"erro: "+ error);
+            JOptionPane.showMessageDialog(null,"Ops deu erro na conexao: "+ error);
         }
         return null;
         
