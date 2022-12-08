@@ -7,6 +7,7 @@ package br.com.projeto.view;
 import br.com.projeto.dao.ClientesDAO;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Utilitarios;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -190,6 +191,16 @@ public class Frmcliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCepActionPerformed(evt);
+            }
+        });
+        txtCep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCepKeyPressed(evt);
+            }
+        });
 
         try {
             txtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # #### - ####")));
@@ -708,6 +719,28 @@ public class Frmcliente extends javax.swing.JFrame {
             
        
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyPressed
+        //Colocar Cep 
+        //Programacao do keypress
+	
+	if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
+         Clientes obj =  new Clientes();
+         Utilitarios util = new Utilitarios();
+         obj = util.buscarCep(txtCep.getText());
+         
+         txtEndereco.setText(obj.getEndereco());
+         txtBairro.setText(obj.getBairro());
+         txtCidade.setText(obj.getCidade());
+         cbEstado.setSelectedItem(obj.getEstado());               
+         
+         
+     }
+    }//GEN-LAST:event_txtCepKeyPressed
+
+    private void txtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCepActionPerformed
 
     /**
      * @param args the command line arguments
