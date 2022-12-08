@@ -332,6 +332,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCodigo">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoActionPerformed"/>
               </Events>
@@ -349,17 +353,14 @@
             <Component class="javax.swing.JTextField" name="txtCidade">
             </Component>
             <Component class="javax.swing.JTextField" name="txtComplemento">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField12"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtComplementoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtRg">
               <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="##.###.###-##" subtype="-1" type="5"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="" subtype="-1" type="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -369,7 +370,7 @@
             <Component class="javax.swing.JFormattedTextField" name="txtCep">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="#####-####" subtype="-1" type="5"/>
+                  <Format format="#####-###" subtype="-1" type="5"/>
                 </Property>
               </Properties>
             </Component>
@@ -522,8 +523,8 @@
                         <Column editable="true" title="E-mail" type="java.lang.Object"/>
                         <Column editable="true" title="Telefone" type="java.lang.Object"/>
                         <Column editable="true" title="Celular" type="java.lang.Object"/>
-                        <Column editable="true" title="Cep" type="java.lang.Object"/>
                         <Column editable="true" title="Endereco" type="java.lang.Object"/>
+                        <Column editable="true" title="Cep" type="java.lang.Object"/>
                         <Column editable="true" title="N&#xb0;" type="java.lang.Object"/>
                         <Column editable="true" title="Comp" type="java.lang.Object"/>
                         <Column editable="true" title="Bairro" type="java.lang.Object"/>

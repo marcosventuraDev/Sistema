@@ -162,24 +162,21 @@ public class Frmcliente extends javax.swing.JFrame {
 
         jLabel15.setText("CPF:");
 
+        txtCodigo.setEditable(false);
+        txtCodigo.setEnabled(false);
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoActionPerformed(evt);
             }
         });
 
-        txtComplemento.setText("jTextField12");
         txtComplemento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtComplementoActionPerformed(evt);
             }
         });
 
-        try {
-            txtRg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtRg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
         txtRg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRgActionPerformed(evt);
@@ -187,7 +184,7 @@ public class Frmcliente extends javax.swing.JFrame {
         });
 
         try {
-            txtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-####")));
+            txtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -351,7 +348,7 @@ public class Frmcliente extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "RG", "CPF", "E-mail", "Telefone", "Celular", "Cep", "Endereco", "N°", "Comp", "Bairro", "Cidade", "UF"
+                "Código", "Nome", "RG", "CPF", "E-mail", "Telefone", "Celular", "Endereco", "Cep", "N°", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
         tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -488,7 +485,27 @@ public class Frmcliente extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
-        // Pega os dados
+        // Pega os dados Clicando 
+        jTabbedPane1.setSelectedIndex(0);
+        
+        //passar os dados para tabela
+        
+        txtCodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),0).toString());
+        txtNome.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),1).toString());
+        txtRg.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),2).toString());
+        txtCpf.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),3).toString());
+        txtEmail.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),4).toString());
+        txtTelefone.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),5).toString());
+        txtCelular.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),6).toString());
+        txtEndereco.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),7).toString());
+        txtCep.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),8).toString());
+        txtNumero.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),9).toString());
+        txtComplemento.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),10).toString());
+        txtBairro.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),11).toString());
+        txtCidade.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),12).toString());
+        cbEstado.setSelectedItem(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),13).toString());
+        
+        
 
     }//GEN-LAST:event_tabelaClientesMouseClicked
 
