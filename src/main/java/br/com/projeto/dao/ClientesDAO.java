@@ -70,9 +70,9 @@ public class ClientesDAO {
     public void alterarCliente( Clientes obj){
           try {
             //1 - criar o comando sql
-            String sql = "update tb_clientes set nome=?,rg=?,cpf=?,email=?,"
-                    + "telefone=?,celular=?,cep=?, endereco=?, numero=?, "
-                    + "complemento=?, bairro=?, cidade=?, estado=?)";
+            String sql = "update tb_clientes set nome = ?,rg = ?,cpf = ?,email = ?,"
+                    + "telefone = ?,celular = ?,cep = ?, endereco = ?, numero = ?, "
+                    + "complemento = ?, bairro = ?, cidade = ?, estado = ? where id = ?";
                     
             
             //2-conectar o banco de dados e organizar o comando sql
@@ -97,10 +97,10 @@ public class ClientesDAO {
             stmt.execute();
             stmt.close();
             
-            JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+            JOptionPane.showMessageDialog(null,"Alterado com Sucesso!");
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Ops ocorreu um erro " +e);
+            JOptionPane.showMessageDialog(null,"Ops ocorreu um erro em alterar cliente " +e);
         }
         
         
