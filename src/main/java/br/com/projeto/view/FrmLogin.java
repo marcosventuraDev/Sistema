@@ -4,6 +4,10 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.FuncionariosDAO;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author joaom
@@ -35,7 +39,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Seja bem vindo ao Sistema - Autenticação");
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
@@ -143,7 +147,19 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Btn entrar 
+        try {
+            String email, senha;
+            email = txtEmail.getText();
+            senha = txtSenha.getText();
+
+            FuncionariosDAO dao = new FuncionariosDAO();
+            
+            dao.efetuarLogin(email, senha);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed

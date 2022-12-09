@@ -10,6 +10,7 @@ import br.com.projeto.jdbc.ConnectionFactory;
 
 
 import br.com.projeto.model.Funcionarios;
+import br.com.projeto.view.FrmMenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -279,6 +280,33 @@ public class FuncionariosDAO {
                     + "na listagem de Funcionarios" + e);
         }
         return null;
+    }
+    
+    //Metodo de Efetuar Login
+    
+    public void efetuarLogin(String email, String senha){
+        
+        try {
+            // 1 passo -SQL
+            String sql = "select * from tb_funcionarios where email = ? and senha = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                //Usuario logou
+                JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
+                FrmMenu tela = new FrmMenu();
+                tela.setVisible(true);
+            }else{
+                //Dados incorretos
+                JOptionPane.showMessageDialog(null,"Dados incorretos!");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ops... Aconteceu um erro no login!! ->" +e);
+        }
     }
   
     
