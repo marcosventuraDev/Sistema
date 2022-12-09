@@ -674,19 +674,22 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         
         String nome = "%" + txtpesquisa.getText() + "%";
         
-        ClientesDAO dao = new ClientesDAO();
+        FuncionariosDAO dao = new FuncionariosDAO();
         
-        List<Clientes> lista = dao.buscarClientePorNome(nome);
+        List<Funcionarios> lista = dao.buscarFuncionariosPorNome(nome);
         DefaultTableModel dados = (DefaultTableModel)tabelaFuncionarios.getModel();
         dados.setNumRows(0);
         
-        for(Clientes c: lista){
+        for(Funcionarios c: lista){
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
                 c.getRg(),
                 c.getCpf(),
                 c.getEmail(),
+                c.getSenha(),
+                c.getCargo(),
+                c.getNivel_acesso(),
                 c.getTelefone(),
                 c.getCelular(),
                 c.getEndereco(),
@@ -707,22 +710,25 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtpesquisaActionPerformed
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
-        // Buscar cliente digitando 
+        // Buscar Funcionarios digitando 
          String nome = "%" + txtpesquisa.getText() + "%";
         
-        ClientesDAO dao = new ClientesDAO();
+        FuncionariosDAO dao = new FuncionariosDAO();
         
-        List<Clientes> lista = dao.buscarClientePorNome(nome);
+        List<Funcionarios> lista = dao.buscarFuncionariosPorNome(nome);
         DefaultTableModel dados = (DefaultTableModel)tabelaFuncionarios.getModel();
         dados.setNumRows(0);
         
-        for(Clientes c: lista){
+        for(Funcionarios c: lista){
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
                 c.getRg(),
                 c.getCpf(),
                 c.getEmail(),
+                c.getSenha(),
+                c.getCargo(),
+                c.getNivel_acesso(),
                 c.getTelefone(),
                 c.getCelular(),
                 c.getEndereco(),
@@ -738,12 +744,12 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtpesquisaKeyPressed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        //Buscar cliente
+        //Buscar Funcionarios
         
     
             String cpf = txtCpf.getText();
-            Clientes obj = new Clientes();
-            ClientesDAO dao = new ClientesDAO();
+            Funcionarios obj = new Funcionarios();
+            FuncionariosDAO dao = new FuncionariosDAO();
             
             obj = dao.consultaPorCpf(cpf);
             
