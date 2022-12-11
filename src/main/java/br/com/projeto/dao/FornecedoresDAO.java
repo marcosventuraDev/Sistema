@@ -173,6 +173,42 @@ public class FornecedoresDAO {
         return null;
    
     }
+    //metodo consultaPorNome 
+    public Fornecedores consultaPorNome(String nome){
+        try {
+            String sql = "select * from tb_fornecedores where nome = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1,nome);
+            
+            ResultSet rs = stmt.executeQuery();
+             Fornecedores obj = new Fornecedores();
+             if(rs.next()){
+               
+                
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setCnpj(rs.getString("cnpj"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("Numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setEstado(rs.getString("estado"));
+                
+                
+            }
+            
+             return obj;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fornecedores não encontrado!" );
+        }
+        return null;
+    }
     
     
     //metodo consultaFornecedores por CPF
@@ -212,6 +248,44 @@ public class FornecedoresDAO {
         }
         return null;
     }
+    
+    //metodo consultaFornecedores por CNPJ
+       public Fornecedores consultaPorCnpj(String cnpj){
+        try {
+            String sql = "select * from tb_fornecedores where cnpj = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1,cnpj);
+            
+            ResultSet rs = stmt.executeQuery();
+             Fornecedores obj = new Fornecedores();
+             if(rs.next()){
+               
+                
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setCnpj(rs.getString("cnpj"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("Numero"));
+                obj.setComplemento(rs.getString("complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setEstado(rs.getString("estado"));
+                
+                
+            }
+            
+             return obj;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Fornecedores não encontrado!" );
+        }
+        return null;
+    }
+    
     
     
     
