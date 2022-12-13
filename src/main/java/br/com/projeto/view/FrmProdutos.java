@@ -74,7 +74,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         txtPreco = new javax.swing.JTextField();
         cbFornecedor = new javax.swing.JComboBox();
         txtQtd = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         txtCusto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         painel_consulta = new javax.swing.JPanel();
@@ -147,13 +147,23 @@ public class FrmProdutos extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        cbFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbFornecedorMouseClicked(evt);
+            }
+        });
         cbFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbFornecedorActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Pesquisar");
+        btnbuscar.setText("Pesquisar");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Custo:");
 
@@ -189,7 +199,7 @@ public class FrmProdutos extends javax.swing.JFrame {
                             .addGroup(painel_dadosLayout.createSequentialGroup()
                                 .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1)))))
+                                .addComponent(btnbuscar)))))
                 .addContainerGap(133, Short.MAX_VALUE))
         );
         painel_dadosLayout.setVerticalGroup(
@@ -203,7 +213,7 @@ public class FrmProdutos extends javax.swing.JFrame {
                 .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnbuscar))
                 .addGap(18, 18, 18)
                 .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -542,6 +552,51 @@ public class FrmProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbFornecedorActionPerformed
 
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        //Botão buscar produto por nome
+        
+        String nome = txtDescricao.getText();
+        Produtos obj = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
+        
+        obj = dao.consultaPorNome(nome);
+        
+        cbFornecedor.removeAllItems();
+        
+        if(obj.getDescricao()!= null){
+            
+            //Exibir os dados do obj nos campos de texto
+            
+            txtCodigo.setText(String.valueOf(obj.getId()));
+            txtDescricao.setText(obj.getDescricao());
+            txtCusto.setText(String.valueOf(obj.getPreco()));
+            txtPreco.setText(String.valueOf(obj.getPreco()));
+            txtQtd.setText(String.valueOf(obj.getQtd_estoque()));
+            
+            Fornecedores f = new Fornecedores();
+            FornecedoresDAO fdao = new FornecedoresDAO();
+            
+            f = fdao.consultaPorNome(obj.getFornecedor().getNome());
+            
+            cbFornecedor.getModel().setSelectedItem(f);
+        }else{
+            JOptionPane.showMessageDialog(null,"Produto não encotrado!");
+            
+        }
+            
+        
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void cbFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbFornecedorMouseClicked
+      
+        FornecedoresDAO dao = new FornecedoresDAO();
+        List<Fornecedores> listadefornecedores = dao.listarFornecedores();
+        cbFornecedor.removeAllItems();
+        for(Fornecedores f:listadefornecedores){
+            cbFornecedor.addItem(f);
+        }
+    }//GEN-LAST:event_cbFornecedorMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -586,8 +641,8 @@ public class FrmProdutos extends javax.swing.JFrame {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnbuscar;
     private javax.swing.JComboBox cbFornecedor;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;

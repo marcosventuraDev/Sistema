@@ -202,4 +202,55 @@ public class ProdutosDAO {
             
          return null;
     }
+      
+      
+      
+      
+       //buscar produto por nome
+    
+      public Produtos consultaPorNome(String nome){
+        
+        try {
+            
+             
+            //Criar o sql, organnizar e executar
+            
+            String sql = "select p.id, p.descricao, p.custo, p.preco, p.qtd_estoque,"
+                    + " f.nome from tb_produtos as p inner join "
+                    + "tb_fornecedores as f "
+                    + "on (p.for_id = f.id) where p.descricao = ?";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, nome);
+            
+            ResultSet rs = stmt.executeQuery();
+            Produtos obj = new Produtos();
+            Fornecedores f = new Fornecedores();
+            
+            while(rs.next()){
+                
+                obj.setId(rs.getInt("p.id"));
+                obj.setDescricao(rs.getString("p.descricao"));
+                obj.setCusto(rs.getDouble("p.custo"));
+                obj.setPreco(rs.getDouble("p.preco"));
+                obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
+                
+                f.setNome(rs.getString("f.nome"));
+                
+                obj.setFornecedor(f);
+                
+                               
+            }
+            
+            return obj;
+           
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Ops... Erro em "
+                    + "buscar Produtos" + e);
+        }
+            
+         return null;
+    }
 }
+
+
