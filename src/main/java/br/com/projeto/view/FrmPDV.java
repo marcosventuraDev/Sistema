@@ -12,12 +12,20 @@ import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author joaom
  */
 public class FrmPDV extends javax.swing.JFrame {
+    
+    //variáveis para inserir produto no carrinho e soma-los
+    
+    double total,preco,subtotal;
+    int qtd;
+    DefaultTableModel carrinho;
+    
 
     /**
      * Creates new form FrmPDV
@@ -65,7 +73,7 @@ public class FrmPDV extends javax.swing.JFrame {
         txtCPF = new javax.swing.JFormattedTextField();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaItens = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         txtTotalVenda = new javax.swing.JTextField();
@@ -155,7 +163,7 @@ public class FrmPDV extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -366,19 +374,19 @@ public class FrmPDV extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Carrinho de Compras"));
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaItens.setBackground(new java.awt.Color(204, 204, 204));
+        tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Produto", "Qtd", "Preço", "Subtotal"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaItens);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -430,6 +438,11 @@ public class FrmPDV extends javax.swing.JFrame {
 
         btnPagamento.setBackground(new java.awt.Color(204, 204, 204));
         btnPagamento.setText("PAGAMENTO");
+        btnPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagamentoActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(204, 204, 204));
         btnCancelar.setText("CANCELAR VENDA");
@@ -568,7 +581,31 @@ public class FrmPDV extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        // recuperar a quantida de produtos e multiplicar pelo valor do produto 
+        //retornando a quantidade final
+        
+        qtd = Integer.parseInt(txtQtd.getText());
+        preco = Double.parseDouble(txtPreco.getText());
+        
+        
+        subtotal = qtd * preco;
+         total += subtotal;
+        txtTotalVenda.setText(String.valueOf(total));
+        
+        //Adicionar o produto no carrinho 
+        
+        carrinho = (DefaultTableModel)tabelaItens.getModel();
+        
+        carrinho.addRow(new Object[]{
+            txtCodigo.getText(),
+            txtProduto.getText(),
+            txtQtd.getText(),
+            txtPreco.getText(),
+            subtotal
+        });
+        
+        
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBuscaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaProdutoActionPerformed
@@ -646,6 +683,15 @@ public class FrmPDV extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtCodigoKeyPressed
 
+    private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
+        // Botão pagamento
+        FrmPagamento telap = new FrmPagamento();
+        telap.txtTotal.setText(String.valueOf(total));
+        
+        telap.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnPagamentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -708,7 +754,7 @@ public class FrmPDV extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaItens;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JFormattedTextField txtCpf;
