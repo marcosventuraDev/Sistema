@@ -4,8 +4,14 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.ClientesDAO;
+import br.com.projeto.dao.ProdutosDAO;
+import br.com.projeto.model.Clientes;
+import br.com.projeto.model.Produtos;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,7 +62,7 @@ public class FrmPDV extends javax.swing.JFrame {
         txtNome1 = new javax.swing.JTextField();
         txtDataVenda = new javax.swing.JFormattedTextField();
         btnBuscaCliente1 = new javax.swing.JButton();
-        txtCpf1 = new javax.swing.JFormattedTextField();
+        txtCPF = new javax.swing.JFormattedTextField();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -175,6 +181,11 @@ public class FrmPDV extends javax.swing.JFrame {
                 txtCodigoActionPerformed(evt);
             }
         });
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyPressed(evt);
+            }
+        });
 
         txtPreco.setPreferredSize(new java.awt.Dimension(64, 24));
         txtPreco.addActionListener(new java.awt.event.ActionListener() {
@@ -196,6 +207,11 @@ public class FrmPDV extends javax.swing.JFrame {
         btnBuscaProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscaProdutoActionPerformed(evt);
+            }
+        });
+        btnBuscaProduto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnBuscaProdutoKeyPressed(evt);
             }
         });
 
@@ -289,13 +305,18 @@ public class FrmPDV extends javax.swing.JFrame {
         });
 
         try {
-            txtCpf1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCpf1.addActionListener(new java.awt.event.ActionListener() {
+        txtCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpf1ActionPerformed(evt);
+                txtCPFActionPerformed(evt);
+            }
+        });
+        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCPFKeyPressed(evt);
             }
         });
 
@@ -313,16 +334,17 @@ public class FrmPDV extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnBuscaCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtCpf1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscaCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(txtDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,13 +354,13 @@ public class FrmPDV extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel7)
                     .addComponent(txtDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCpf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscaCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscaCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -515,12 +537,31 @@ public class FrmPDV extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataVendaActionPerformed
 
     private void btnBuscaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaCliente1ActionPerformed
-        // TODO add your handling code here:
+        // Realiar busca por CPF
+        
+            String cpf = txtCPF.getText();
+            Clientes obj = new Clientes();
+            ClientesDAO dao = new ClientesDAO();
+            
+            obj = dao.consultaPorCpf(cpf);
+            
+            if(obj.getCpf() != null){
+            //Exibir os dados no campo de texto
+            
+
+            txtNome1.setText(obj.getNome());
+    
+            txtCPF.setText(obj.getCpf());
+       
+          
+            }else{
+                JOptionPane.showMessageDialog(null, "Clienete não encontrado!");
+            }
     }//GEN-LAST:event_btnBuscaCliente1ActionPerformed
 
-    private void txtCpf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpf1ActionPerformed
+    private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpf1ActionPerformed
+    }//GEN-LAST:event_txtCPFActionPerformed
 
     private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
         // TODO add your handling code here:
@@ -531,7 +572,14 @@ public class FrmPDV extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBuscaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaProdutoActionPerformed
-        // TODO add your handling code here:
+        
+           Produtos obj = new Produtos();
+            ProdutosDAO dao = new ProdutosDAO();
+            
+            obj=dao.buscaPorCodigo(Integer.parseInt(txtCodigo.getText()));
+            
+            txtProduto.setText(obj.getDescricao());
+            txtPreco.setText(String.valueOf(obj.getPreco()));
     }//GEN-LAST:event_btnBuscaProdutoActionPerformed
 
     private void txtTotalVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalVendaActionPerformed
@@ -552,6 +600,51 @@ public class FrmPDV extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_formWindowActivated
+
+    private void txtCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyPressed
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            
+            String cpf = txtCPF.getText();
+            Clientes obj = new Clientes();
+            ClientesDAO dao = new ClientesDAO();
+            
+            obj = dao.consultaPorCpf(cpf);
+            
+            if(obj.getCpf() != null){
+            //Exibir os dados no campo de texto
+            
+
+            txtNome1.setText(obj.getNome());
+    
+      
+       
+          
+            }else{
+                JOptionPane.showMessageDialog(null, "Clienete não encontrado!");
+            }
+        }
+    }//GEN-LAST:event_txtCPFKeyPressed
+
+    private void btnBuscaProdutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBuscaProdutoKeyPressed
+        // buscaPorCodigo
+        
+        
+    }//GEN-LAST:event_btnBuscaProdutoKeyPressed
+
+    private void txtCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyPressed
+        // Busca por Código
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            Produtos obj = new Produtos();
+            ProdutosDAO dao = new ProdutosDAO();
+            
+            obj=dao.buscaPorCodigo(Integer.parseInt(txtCodigo.getText()));
+            
+            txtProduto.setText(obj.getDescricao());
+            txtPreco.setText(String.valueOf(obj.getPreco()));
+            
+        }
+    }//GEN-LAST:event_txtCodigoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -616,9 +709,9 @@ public class FrmPDV extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JFormattedTextField txtCpf;
-    private javax.swing.JFormattedTextField txtCpf1;
     private javax.swing.JFormattedTextField txtData;
     private javax.swing.JFormattedTextField txtDataVenda;
     private javax.swing.JTextField txtNome;

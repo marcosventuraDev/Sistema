@@ -335,6 +335,7 @@
             <Component class="javax.swing.JTextField" name="txtCodigo">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCodigoKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtProduto">
@@ -371,6 +372,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscaProdutoActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnBuscaProdutoKeyPressed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -401,20 +403,21 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtNome1" min="-2" pref="263" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="txtCPF" min="-2" pref="121" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnBuscaCliente1" min="-2" pref="107" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtCpf1" min="-2" pref="121" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
                               <Component id="jLabel7" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtDataVenda" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="txtNome1" min="-2" pref="287" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -426,15 +429,15 @@
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtDataVenda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCpf1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBuscaCliente1" alignment="3" pref="22" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNome1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnBuscaCliente1" alignment="3" pref="22" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -479,14 +482,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscaCliente1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtCpf1">
+            <Component class="javax.swing.JFormattedTextField" name="txtCPF">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="###.###.###-##" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCpf1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCPFActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCPFKeyPressed"/>
               </Events>
             </Component>
           </SubComponents>

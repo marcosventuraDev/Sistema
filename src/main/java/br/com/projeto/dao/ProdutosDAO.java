@@ -251,6 +251,49 @@ public class ProdutosDAO {
             
          return null;
     }
-}
 
+
+
+//buscar produto por Codigo de barras
+      
+    
+      public Produtos buscaPorCodigo(int id){
+        
+        try {
+            
+             
+            //Criar o sql, organnizar e executar
+            
+            String sql = "select * from tb_produtos where id = ?";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            Produtos obj = new Produtos();
+          
+            
+            while(rs.next()){
+                
+                obj.setId(rs.getInt("id"));
+                obj.setDescricao(rs.getString("descricao"));
+                obj.setCusto(rs.getDouble("custo"));
+                obj.setPreco(rs.getDouble("preco"));
+                obj.setQtd_estoque(rs.getInt("qtd_estoque"));
+                
+                          
+                
+                               
+            }
+            
+            return obj;
+           
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Ops... Erro em "
+                    + "buscar Produtos" + e);
+        }
+            
+         return null;
+    }
+}
 
