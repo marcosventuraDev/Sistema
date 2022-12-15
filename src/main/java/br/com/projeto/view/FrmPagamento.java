@@ -24,6 +24,7 @@ public class FrmPagamento extends javax.swing.JFrame {
      * Creates new form FrmPagamento
      */
         Clientes cliente = new Clientes();
+        DefaultTableModel carrinho;
         
       
     
@@ -317,7 +318,10 @@ public class FrmPagamento extends javax.swing.JFrame {
         
         objv.setId(dao_v.retornaUltimaVenda());
         
-        JOptionPane.showMessageDialog(null,"Id da ultima venda "+objv.getId());
+        
+        
+        
+       
         
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
