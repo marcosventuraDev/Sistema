@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmPDV extends javax.swing.JFrame {
     
+     Clientes obj = new Clientes();
     //variáveis para inserir produto no carrinho e soma-los
     
     double total,preco,subtotal;
@@ -643,7 +644,7 @@ public class FrmPDV extends javax.swing.JFrame {
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             
             String cpf = txtCPF.getText();
-            Clientes obj = new Clientes();
+           
             ClientesDAO dao = new ClientesDAO();
             
             obj = dao.consultaPorCpf(cpf);
@@ -687,6 +688,8 @@ public class FrmPDV extends javax.swing.JFrame {
         // Botão pagamento
         FrmPagamento telap = new FrmPagamento();
         telap.txtTotal.setText(String.valueOf(total));
+        
+        telap.cliente_id=obj.getId();
         
         telap.setVisible(true);
         this.dispose();
