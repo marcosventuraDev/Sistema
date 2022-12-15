@@ -12,11 +12,10 @@ public class Vendas {
     //Atributos
     
     private int id;
-    private Clientes clientes;
+    private Clientes cliente_id;
     private String data_venda;
     private double total_venda;
-    private String obs;
-    
+    private String observacoes;
     
     //gatters e setters
 
@@ -28,12 +27,12 @@ public class Vendas {
         this.id = id;
     }
 
-    public Clientes getClientes() {
-        return clientes;
+    public Clientes getCliente_id() {
+        return cliente_id;
     }
 
-    public void setClientes(Clientes clientes) {
-        this.clientes = clientes;
+    public void setCliente_id(Clientes cliente_id) {
+        this.cliente_id = cliente_id;
     }
 
     public String getData_venda() {
@@ -52,12 +51,13 @@ public class Vendas {
         this.total_venda = total_venda;
     }
 
-    public String getObs() {
-        return obs;
+    public String getObservacoes() {
+        return observacoes;
     }
 
-    public void setObs(String obs) {
-        this.obs = obs;
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
     }
+
     
 }

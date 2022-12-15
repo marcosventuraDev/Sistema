@@ -31,15 +31,17 @@ public class VendasDAO {
         
         try {
             String sql = "insert into tb_vendas(cliente_id, data_venda, "
-                    + "total_venda, observacoes) values(?, ?, ?, ?)";
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setInt(1,obj.getClientes().getId());
+                    + "total_venda, observacoes) values (?, ?, ?, ?)";
+             PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1,obj.getCliente_id().getId());
             stmt.setString(2,obj.getData_venda());
             stmt.setDouble(3, obj.getTotal_venda());
-            stmt.setString(4,obj.getObs());
+            stmt.setString(4,obj.getObservacoes());
             
+            stmt.execute();
+            stmt.close();
             JOptionPane.showMessageDialog(null, "Venda Registrada com Sucesso");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ops...! Ocorreu um erro no registro da Venda");
         }
         
@@ -52,7 +54,7 @@ public class VendasDAO {
         try {
             int idvenda = 0;
             
-            String sql = "select max(id) id from vendas";
+            String sql = "select max(id) id from tb_vendas";
             PreparedStatement ps = con.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
@@ -65,7 +67,7 @@ public class VendasDAO {
             return idvenda;
         } catch (SQLException e) {
             
-            throw new RuntimeException(e);
+            throw new RuntimeException("Opss... Aconteceu um erro  no retorno de vendas"+e);
         }
         
 }

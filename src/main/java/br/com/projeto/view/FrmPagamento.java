@@ -9,6 +9,7 @@ import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Vendas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,7 +21,8 @@ public class FrmPagamento extends javax.swing.JFrame {
      * Creates new form FrmPagamento
      */
         Clientes cliente = new Clientes();
-    
+        
+      
     
     
     public FrmPagamento() {
@@ -269,7 +271,7 @@ public class FrmPagamento extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         
-        double pcartao, pcheque,pdinheiro,totalpago, totalvenda,troco;
+        double pcartao, pcheque, pdinheiro, totalpago, totalvenda, troco;
         
         pcartao = Double.parseDouble(txtCartao.getText());
         pcheque = Double.parseDouble(txtCheque.getText());
@@ -277,17 +279,19 @@ public class FrmPagamento extends javax.swing.JFrame {
         
         totalvenda = Double.parseDouble(txtTotal.getText());
         
+        
         //Calcular o total e o troco
         
         totalpago = pcartao + pcheque + pdinheiro;
         troco = totalpago - totalvenda;
         txtTroco.setText(String.valueOf(troco));
         
+        
         Vendas objv= new Vendas();
         
         //Dados do Cliente(cliente_id)
         
-        objv.setClientes(cliente);
+        objv.setCliente_id(cliente);
         
         //Pega data da Venda
         Date agora = new Date();
@@ -300,11 +304,17 @@ public class FrmPagamento extends javax.swing.JFrame {
         //total da venda
         objv.setTotal_venda(totalvenda);
         
-        objv.setObs(txtObs.getText());
+        objv.setObservacoes(txtObs.getText());
         
         VendasDAO dao_v = new VendasDAO();
-        
         dao_v.cadastrarVenda(objv);
+        
+        
+        //Retornad id da ultima venda realizada
+        
+        objv.setId(dao_v.retornaUltimaVenda());
+        
+        System.out.print("Id da ultima venda "+objv.getId());
         
     }//GEN-LAST:event_btnFinalizarActionPerformed
 

@@ -689,7 +689,7 @@ public class FrmPDV extends javax.swing.JFrame {
         FrmPagamento telap = new FrmPagamento();
         telap.txtTotal.setText(String.valueOf(total));
         
-        telap.cliente_id=obj.getId();
+        telap.cliente = obj;
         
         telap.setVisible(true);
         this.dispose();
