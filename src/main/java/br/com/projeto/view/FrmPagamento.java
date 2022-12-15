@@ -1,6 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt
+ * to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit
+ *  this template
  */
 package br.com.projeto.view;
 
@@ -9,6 +11,7 @@ import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Vendas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -314,7 +317,7 @@ public class FrmPagamento extends javax.swing.JFrame {
         
         objv.setId(dao_v.retornaUltimaVenda());
         
-        System.out.print("Id da ultima venda "+objv.getId());
+        JOptionPane.showMessageDialog(null,"Id da ultima venda "+objv.getId());
         
     }//GEN-LAST:event_btnFinalizarActionPerformed
 

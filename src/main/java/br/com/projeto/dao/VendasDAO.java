@@ -55,16 +55,19 @@ public class VendasDAO {
             int idvenda = 0;
             
             String sql = "select max(id) id from tb_vendas";
-            PreparedStatement ps = con.prepareStatement(sql);
+               PreparedStatement ps = con.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()){
-                Vendas p = new Vendas();
                 
+                Vendas p = new Vendas();
+                p.setId(rs.getInt("id"));
                 idvenda = p.getId();
+                
             }
-            return idvenda;
+        
+          return idvenda;
         } catch (SQLException e) {
             
             throw new RuntimeException("Opss... Aconteceu um erro  no retorno de vendas"+e);
