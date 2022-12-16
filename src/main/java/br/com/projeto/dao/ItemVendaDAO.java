@@ -8,6 +8,7 @@ import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.ItemVendas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author joaom
  */
 public class ItemVendaDAO {
-    
+     //Conectar com o banco de dados
     private Connection con;
     
     public ItemVendaDAO(){
@@ -27,8 +28,8 @@ public class ItemVendaDAO {
     //Metodo que cadastraItens
     public void cadastraItem(ItemVendas obj){
         try {
-            //Conectar com o banco de dados
-            String sql = "inset into tb_itensvendas(venda_id, produto_id, qtd, subtotal)values(?, ?, ?, ?)";
+           
+            String sql = "insert into tb_itensvendas(venda_id, produto_id, qtd, subtotal)values(?, ?, ?, ?)";
             
             PreparedStatement stmt = con.prepareStatement(sql);
             
@@ -39,7 +40,9 @@ public class ItemVendaDAO {
             
             stmt.execute();
             stmt.close();
-        } catch (Exception e) {
+            
+           
+        } catch (SQLException e) {
             
             JOptionPane.showMessageDialog(null,"Erro no "
                     + "cadastrar ItensVendas"+ e);

@@ -6,8 +6,11 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.ItemVendaDAO;
 import br.com.projeto.dao.VendasDAO;
 import br.com.projeto.model.Clientes;
+import br.com.projeto.model.ItemVendas;
+import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Vendas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -314,14 +317,33 @@ public class FrmPagamento extends javax.swing.JFrame {
         dao_v.cadastrarVenda(objv);
         
         
-        //Retornad id da ultima venda realizada
+        //Retornar id da ultima venda realizada
         
         objv.setId(dao_v.retornaUltimaVenda());
         
+        System.out.println("id da ultima venda"+objv.getId());
         
         
+        //Cadastrando os produtos na tabela itemvendas
         
-       
+        for(int i = 0; i < this.carrinho.getRowCount(); i++){
+            
+            Produtos objp = new Produtos();
+            ItemVendas item = new ItemVendas();
+            item.setVendas(objv);
+            
+            objp.setId(Integer.parseInt(carrinho.getValueAt(i, 0).toString()));
+            item.setProdutos(objp);
+            item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
+            item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i,4).toString()));
+            
+            
+            ItemVendaDAO daoitem = new ItemVendaDAO();
+            
+            daoitem.cadastraItem(item);
+        }
+        //**********************************************************************
+       JOptionPane.showMessageDialog(null, "Venda Registrada com Sucesso");
         
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
