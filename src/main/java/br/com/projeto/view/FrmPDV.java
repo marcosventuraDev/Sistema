@@ -651,13 +651,8 @@ public class FrmPDV extends javax.swing.JFrame {
             
             if(obj.getCpf() != null){
             //Exibir os dados no campo de texto
-            
-
             txtNome1.setText(obj.getNome());
-    
-      
-       
-          
+
             }else{
                 JOptionPane.showMessageDialog(null, "Clienete não encontrado!");
             }
