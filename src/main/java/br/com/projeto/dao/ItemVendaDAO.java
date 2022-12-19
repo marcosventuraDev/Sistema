@@ -29,7 +29,8 @@ public class ItemVendaDAO {
     public void cadastraItem(ItemVendas obj){
         try {
            
-            String sql = "insert into tb_itensvendas(venda_id, produto_id, qtd, subtotal)values(?, ?, ?, ?)";
+            String sql = "insert into tb_itensvendas(venda_id, produto_id,"
+                    + " qtd, subtotal)values(?, ?, ?, ?)";
             
             PreparedStatement stmt = con.prepareStatement(sql);
             
@@ -40,7 +41,7 @@ public class ItemVendaDAO {
             
             stmt.execute();
             stmt.close();
-            
+               JOptionPane.showMessageDialog(null,"sucesso No registro de produtos na tb_itensVendas");
            
         } catch (SQLException e) {
             

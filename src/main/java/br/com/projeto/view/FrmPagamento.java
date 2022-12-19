@@ -326,7 +326,7 @@ public class FrmPagamento extends javax.swing.JFrame {
         
         //Cadastrando os produtos na tabela itemvendas
         
-        for(int i = 0; i < this.carrinho.getRowCount(); i++){
+        for(int i = 0; i <= this.carrinho.getRowCount(); i++){
             
             Produtos objp = new Produtos();
             ItemVendas item = new ItemVendas();
