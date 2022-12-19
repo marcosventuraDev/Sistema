@@ -17,10 +17,11 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author joaom
- */
+ */ 
 public class FrmPDV extends javax.swing.JFrame {
     
-     Clientes obj = new Clientes();
+   Clientes obj = new Clientes();
+     
     //variáveis para inserir produto no carrinho e soma-los
     
     double total,preco,subtotal;
@@ -73,7 +74,7 @@ public class FrmPDV extends javax.swing.JFrame {
         btnBuscaCliente1 = new javax.swing.JButton();
         txtCPF = new javax.swing.JFormattedTextField();
         jPanel6 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tabelaItens = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -375,19 +376,15 @@ public class FrmPDV extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Carrinho de Compras"));
 
-        tabelaItens.setBackground(new java.awt.Color(204, 204, 204));
         tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Produto", "Qtd", "Preço", "Subtotal"
             }
         ));
-        jScrollPane1.setViewportView(tabelaItens);
+        jScrollPane2.setViewportView(tabelaItens);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -395,13 +392,13 @@ public class FrmPDV extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -554,7 +551,7 @@ public class FrmPDV extends javax.swing.JFrame {
         // Realiar busca por CPF
         
             String cpf = txtCPF.getText();
-            Clientes obj = new Clientes();
+            
             ClientesDAO dao = new ClientesDAO();
             
             obj = dao.consultaPorCpf(cpf);
@@ -632,6 +629,7 @@ public class FrmPDV extends javax.swing.JFrame {
         // Carrega a Data Atual do sistema
         
         Date agora = new Date();
+        
         SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
         String dataformatada = dataBr.format(agora);
         txtDataVenda.setText(dataformatada);
@@ -689,7 +687,7 @@ public class FrmPDV extends javax.swing.JFrame {
         
         
         telap.setVisible(true);
-        this.dispose();
+     
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
     /**
@@ -753,7 +751,7 @@ public class FrmPDV extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tabelaItens;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtCodigo;

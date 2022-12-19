@@ -19,7 +19,7 @@ public class ConnectionFactory {
         
         try{
             
-            return DriverManager.getConnection("jdbc:mysql://localhost/bdvendas","root","");
+            return DriverManager.getConnection("jdbc:mysql://localhost/mvsistemadb","root","");
            
         
         } catch (Exception error){
