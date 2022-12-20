@@ -41,7 +41,7 @@ public class ItemVendaDAO {
             
             stmt.execute();
             stmt.close();
-               JOptionPane.showMessageDialog(null,"sucesso No registro de produtos na tb_itensVendas");
+               
            
         } catch (SQLException e) {
             

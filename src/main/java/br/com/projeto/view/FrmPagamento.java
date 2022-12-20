@@ -7,6 +7,7 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.ItemVendaDAO;
+import br.com.projeto.dao.ProdutosDAO;
 import br.com.projeto.dao.VendasDAO;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.ItemVendas;
@@ -326,9 +327,13 @@ public class FrmPagamento extends javax.swing.JFrame {
         
         //Cadastrando os produtos na tabela itemvendas
         
-        for(int i = 0; i <= this.carrinho.getRowCount(); i++){
-            
+        for(int i = 0; i < carrinho.getRowCount(); i++){
+               
+            int qtd_estoque, qtd_comprada, qtd_atualizada;
             Produtos objp = new Produtos();
+            ProdutosDAO dao_produto = new ProdutosDAO();
+ 
+         
             ItemVendas item = new ItemVendas();
             item.setVendas(objv);
             
@@ -336,6 +341,15 @@ public class FrmPagamento extends javax.swing.JFrame {
             item.setProdutos(objp);
             item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
             item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i,4).toString()));
+            
+            
+            //Baixa no estoque 
+            
+            qtd_estoque = dao_produto.retornaEstoqueAtual(objp.getId());
+            qtd_comprada = Integer.parseInt(carrinho.getValueAt(i,2).toString());
+            qtd_atualizada = qtd_estoque - qtd_comprada;
+            
+            dao_produto.baixaEstoque(objp.getId(), qtd_atualizada);
             
             
             ItemVendaDAO daoitem = new ItemVendaDAO();

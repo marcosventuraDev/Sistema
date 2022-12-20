@@ -40,7 +40,7 @@ public class VendasDAO {
             
             stmt.execute();
             stmt.close();
-            JOptionPane.showMessageDialog(null, "Venda realizada com sucesso");
+          
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Ops...! Ocorreu um erro no registro da Venda"+e);
         }
