@@ -84,10 +84,12 @@ public class VendasDAO {
     public List<Vendas> listarVendasPorPeriodo(LocalDate data_inicio, LocalDate data_fim){
         try {
             
-            List<Vendas> lista = new ArrayList<>();
+            List<Vendas> lista = new ArrayList <>();
             
-            String sql = "SELECT v.id, v.data_venda, c.nome, v.total_venda, v.observacoes FROM tb_vendas as v INNER JOIN "
-                    + "tb_clientes as c  on(v.cliente_id = c.id) WHERE  v.data_venda BETWEEN ? ADN ?";
+            String sql = "SELECT v.id, date_format(v.data_venda, '%d/%m/%Y')as data_formatada, c.nome, v.total_venda, "
+                    + "v.observacoes FROM tb_vendas as v INNER JOIN "
+                    + " tb_clientes as c on(v.cliente_id = c.id) WHERE "
+                    + " v.data_venda BETWEEN ? AND ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, data_inicio.toString());
             stmt.setString(2, data_fim.toString());
@@ -99,21 +101,21 @@ public class VendasDAO {
                 Clientes c = new Clientes();
                 
                 obj.setId(rs.getInt("v.id"));
-                obj.setData_venda(rs.getString("v.data_venda"));
+                obj.setData_venda(rs.getString("data_formatada"));
                 c.setNome(rs.getString("c.nome"));
                 obj.setTotal_venda(rs.getDouble("v.total_venda"));
                 obj.setObservacoes(rs.getString("v.observacoes"));
                 
                 
-                obj.setClientes(c);
+                obj.setCliente_id(c);
                 
                 lista.add(obj);
             }
             return lista;
             
         } catch (SQLException e) {
-            //JOptionPane.showMessageDialog(null,"Erro na busca por data"+ e);
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null,"Erro na busca por data"+ e);
+            
         }
         return null;
     }
