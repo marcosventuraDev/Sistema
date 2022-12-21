@@ -184,6 +184,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnpesquisardetalhesVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisardetalhesVendasActionPerformed
@@ -239,9 +240,9 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tabelaItensVendidos;
-    private javax.swing.JTextField txtCliente;
-    private javax.swing.JFormattedTextField txtDataVenda;
-    private javax.swing.JTextArea txtObsVenda;
-    private javax.swing.JTextField txtTotalVenda;
+    public javax.swing.JTextField txtCliente;
+    public javax.swing.JFormattedTextField txtDataVenda;
+    public javax.swing.JTextArea txtObsVenda;
+    public javax.swing.JTextField txtTotalVenda;
     // End of variables declaration//GEN-END:variables
 }
