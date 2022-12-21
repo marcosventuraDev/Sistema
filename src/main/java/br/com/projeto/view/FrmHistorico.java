@@ -9,6 +9,7 @@ import br.com.projeto.model.Vendas;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -165,7 +166,8 @@ public class FrmHistorico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnpesquisarhistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarhistoricoActionPerformed
-        //botão para busca venda pro periodo
+        try {
+            //botão para busca venda pro periodo
         //Receber as datas
         
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -190,6 +192,11 @@ public class FrmHistorico extends javax.swing.JFrame {
                 
             });
         }
+        } catch (Exception e) {
+            
+           JOptionPane.showMessageDialog(null, "Nenhum registro localizado!");
+        }
+
         
         
     }//GEN-LAST:event_btnpesquisarhistoricoActionPerformed
