@@ -62,10 +62,10 @@ public class ItemVendaDAO {
         List<ItemVendas>lista = new ArrayList<>();
         
         try {
-            String query = "SELECT i.id, p.descricao, i.qtd, p.preco,"
-                    + " i.subtotal from tb_itensvendas AS i INNER JOIN "
-                    + " tb_produtos AS p ON (i.produto_id = p.id) WHERE "
-                    + " i.venda_id = ?";
+            String query = "SELECT i.id, p.descricao, i.qtd, p.preco, "
+                    + "i.subtotal from tb_itensvendas AS i INNER "
+                    + "JOIN tb_produtos AS p ON (i.produto_id = p.id) WHERE "
+                    + "i.venda_id = ?";
             
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1,venda_id);
@@ -73,21 +73,21 @@ public class ItemVendaDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 ItemVendas item = new ItemVendas();
-                Produtos prod = new Produtos();
+                Produtos p = new Produtos();
                 
                 item.setId(rs.getInt("i.id"));
-                prod.setDescricao(rs.getString("p.descricao"));
+                p.setDescricao(rs.getString("p.descricao"));
                 item.setQtd(rs.getInt("i.qtd"));
-                prod.setPreco(rs.getInt("p.preco"));
+                p.setPreco(rs.getInt("p.preco"));
                 item.setSubtotal(rs.getInt("i.subtotal"));
                 
-                item.setProdutos(prod);
+                item.setProdutos(p);
                 
                 
                  lista.add(item);
             }
             
-           
+           return lista;
             
         } catch (Exception e) {
          

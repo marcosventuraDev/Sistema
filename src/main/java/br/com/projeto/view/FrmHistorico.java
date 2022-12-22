@@ -4,7 +4,9 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.ItemVendaDAO;
 import br.com.projeto.dao.VendasDAO;
+import br.com.projeto.model.ItemVendas;
 import br.com.projeto.model.Vendas;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -215,6 +217,35 @@ public class FrmHistorico extends javax.swing.JFrame {
         tela.txtCliente.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),2).toString());
         tela.txtTotalVenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),3).toString());
         tela.txtObsVenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),4).toString());
+        
+        
+        
+        //Dados dos items comprados
+        int venda = Integer.parseInt(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),0).toString());
+        
+       
+        
+        ItemVendas item = new ItemVendas();
+        ItemVendaDAO dao_item = new ItemVendaDAO();
+        List<ItemVendas> listaitens = dao_item.listaItensVenda(venda);
+        
+         System.out.println("Esse é o retorno: " + listaitens);
+         
+        DefaultTableModel dados = (DefaultTableModel)tela.tabelaItensVendidos.getModel();
+        dados.setNumRows(0);
+        
+        for(ItemVendas v: listaitens){
+        dados.addRow(new Object[]{
+            
+            v.getProdutos().getDescricao(),
+            v.getQtd(),
+            v.getProdutos().getPreco(),
+            v.getSubtotal()
+            
+        });
+        
+        }
+        
            
         tela.setVisible(true);
         
