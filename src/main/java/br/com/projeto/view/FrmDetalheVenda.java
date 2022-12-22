@@ -159,6 +159,11 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
                 "Código", "Produto", "Qtd", "Preço", "Subtotal"
             }
         ));
+        tabelaItensVendidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaItensVendidosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaItensVendidos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,6 +196,10 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
      
         
     }//GEN-LAST:event_btnpesquisardetalhesVendasActionPerformed
+
+    private void tabelaItensVendidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItensVendidosMouseClicked
+
+    }//GEN-LAST:event_tabelaItensVendidosMouseClicked
 
     /**
      * @param args the command line arguments

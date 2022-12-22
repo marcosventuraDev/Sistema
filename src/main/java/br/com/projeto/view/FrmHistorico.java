@@ -211,9 +211,9 @@ public class FrmHistorico extends javax.swing.JFrame {
         
         FrmDetalheVenda tela = new FrmDetalheVenda();
         
+        tela.txtDataVenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),1).toString());
         tela.txtCliente.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),2).toString());
         tela.txtTotalVenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),3).toString());
-        tela.txtDataVenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),1).toString());
         tela.txtObsVenda.setText(tabelaHistorico.getValueAt(tabelaHistorico.getSelectedRow(),4).toString());
            
         tela.setVisible(true);

@@ -6,9 +6,14 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.ItemVendas;
+import br.com.projeto.model.Produtos;
+import br.com.projeto.model.Vendas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,6 +53,49 @@ public class ItemVendaDAO {
             JOptionPane.showMessageDialog(null,"Erro no "
                     + "cadastrar ItensVendas"+ e);
         }
+    }
+    
+    //Metodo de listar itens de venda por ID
+    
+    public List<ItemVendas> listaItensVenda(int venda_id){
+        
+        List<ItemVendas>lista = new ArrayList<>();
+        
+        try {
+            String query = "SELECT i.id, p.descricao, i.qtd, p.preco,"
+                    + " i.subtotal from tb_itensvendas AS i INNER JOIN "
+                    + " tb_produtos AS p ON (i.produto_id = p.id) WHERE "
+                    + " i.venda_id = ?";
+            
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1,venda_id);
+            
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                ItemVendas item = new ItemVendas();
+                Produtos prod = new Produtos();
+                
+                item.setId(rs.getInt("i.id"));
+                prod.setDescricao(rs.getString("p.descricao"));
+                item.setQtd(rs.getInt("i.qtd"));
+                prod.setPreco(rs.getInt("p.preco"));
+                item.setSubtotal(rs.getInt("i.subtotal"));
+                
+                item.setProdutos(prod);
+                
+                
+                 lista.add(item);
+            }
+            
+           
+            
+        } catch (Exception e) {
+         
+            JOptionPane.showMessageDialog(null, "Erro na listagem dos Itens da venda" + e);
+        }
+        return null;
+        
+        
     }
     
 }
