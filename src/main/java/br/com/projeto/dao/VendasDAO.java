@@ -126,8 +126,9 @@ public class VendasDAO {
         try {
             double totalvenda = 0;
             
-            String sql = "select sum(total_vena)as total from tb_vendas where data_venda = ?";
+            String sql = "select sum(total_venda)as total from tb_vendas where data_venda = ?";
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, data_venda.toString());
             
             ResultSet rs = ps.executeQuery();
             
@@ -137,7 +138,7 @@ public class VendasDAO {
             return totalvenda;
         } catch (SQLException e) {
             
-            throw new RuntimeException(e);
+            throw new RuntimeException("O erro está aqui"+e);
         }
     }
     
