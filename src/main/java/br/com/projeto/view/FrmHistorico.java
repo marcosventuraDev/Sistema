@@ -170,6 +170,7 @@ public class FrmHistorico extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnpesquisarhistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarhistoricoActionPerformed

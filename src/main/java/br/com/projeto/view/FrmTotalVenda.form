@@ -107,7 +107,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Cadastro de Produtos"/>
+            <Property name="text" type="java.lang.String" value="Posi&#xe7;&#xe3;o do Dia"/>
           </Properties>
         </Component>
       </SubComponents>
