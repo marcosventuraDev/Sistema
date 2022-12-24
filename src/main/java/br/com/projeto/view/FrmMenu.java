@@ -296,6 +296,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void menuConsultaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaProdutoActionPerformed
                 FrmProdutos tela = new FrmProdutos();
+                tela.jTabbedPane1.setSelectedIndex(1);
                 tela.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_menuConsultaProdutoActionPerformed
 
