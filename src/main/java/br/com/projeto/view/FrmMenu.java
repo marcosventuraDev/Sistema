@@ -7,6 +7,7 @@ package br.com.projeto.view;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,20 +45,20 @@ public class FrmMenu extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuControleClientes = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menu_ControleFuncionarios = new javax.swing.JMenuItem();
         jMenu13 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuControleFornecedores = new javax.swing.JMenuItem();
         jMenu14 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menuControleEstoque = new javax.swing.JMenuItem();
+        menuConsultaProduto = new javax.swing.JMenuItem();
         jMenu15 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        menu_pdv = new javax.swing.JMenuItem();
+        menu_posicao = new javax.swing.JMenuItem();
+        menu_historico = new javax.swing.JMenuItem();
         jMenu16 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        menuTrocaUsuario = new javax.swing.JMenuItem();
         jMenu17 = new javax.swing.JMenu();
 
         jMenu9.setText("File");
@@ -123,15 +124,15 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\clientes.png")); // NOI18N
         jMenu1.setText("Clientes");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\novo.png")); // NOI18N
-        jMenuItem1.setText("Controle de Clientes");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuControleClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuControleClientes.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\novo.png")); // NOI18N
+        menuControleClientes.setText("Controle de Clientes");
+        menuControleClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuControleClientesActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(menuControleClientes);
 
         jMenuBar2.add(jMenu1);
 
@@ -143,97 +144,107 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Controle de Funcionários");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menu_ControleFuncionarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menu_ControleFuncionarios.setText("Controle de Funcionários");
+        menu_ControleFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menu_ControleFuncionariosActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem2);
+        jMenu8.add(menu_ControleFuncionarios);
 
         jMenuBar2.add(jMenu8);
 
         jMenu13.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\fornecedores.png")); // NOI18N
         jMenu13.setText("Fornecedores");
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setText("Controle de Fornecedores");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuControleFornecedores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuControleFornecedores.setText("Controle de Fornecedores");
+        menuControleFornecedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuControleFornecedoresActionPerformed(evt);
             }
         });
-        jMenu13.add(jMenuItem3);
+        jMenu13.add(menuControleFornecedores);
 
         jMenuBar2.add(jMenu13);
 
         jMenu14.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\produtos.png")); // NOI18N
         jMenu14.setText("Produtos");
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem4.setText("Controle de Estoque");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        menuControleEstoque.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuControleEstoque.setText("Controle de Estoque");
+        menuControleEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                menuControleEstoqueActionPerformed(evt);
             }
         });
-        jMenu14.add(jMenuItem4);
+        jMenu14.add(menuControleEstoque);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem5.setText("Consulta de Produtos");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        menuConsultaProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuConsultaProduto.setText("Consulta de Produtos");
+        menuConsultaProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                menuConsultaProdutoActionPerformed(evt);
             }
         });
-        jMenu14.add(jMenuItem5);
+        jMenu14.add(menuConsultaProduto);
 
         jMenuBar2.add(jMenu14);
 
         jMenu15.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\vendas.png")); // NOI18N
         jMenu15.setText("Vendas");
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem7.setText("Abrir PDV");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        menu_pdv.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menu_pdv.setText("Abrir PDV");
+        menu_pdv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                menu_pdvActionPerformed(evt);
             }
         });
-        jMenu15.add(jMenuItem7);
+        jMenu15.add(menu_pdv);
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem8.setText("Posiçao do dia");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        menu_posicao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menu_posicao.setText("Posiçao do dia");
+        menu_posicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                menu_posicaoActionPerformed(evt);
             }
         });
-        jMenu15.add(jMenuItem8);
+        jMenu15.add(menu_posicao);
 
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem9.setText("Histórico de Vendas");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        menu_historico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menu_historico.setText("Histórico de Vendas");
+        menu_historico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                menu_historicoActionPerformed(evt);
             }
         });
-        jMenu15.add(jMenuItem9);
+        jMenu15.add(menu_historico);
 
         jMenuBar2.add(jMenu15);
 
         jMenu16.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\configuracoes.png")); // NOI18N
         jMenu16.setText("Configurações");
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem6.setText("Troca de Usuários");
-        jMenu16.add(jMenuItem6);
+        menuTrocaUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuTrocaUsuario.setText("Troca de Usuários");
+        menuTrocaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTrocaUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu16.add(menuTrocaUsuario);
 
         jMenuBar2.add(jMenu16);
 
         jMenu17.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\sair.png")); // NOI18N
         jMenu17.setText("Sair");
+        jMenu17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu17MouseClicked(evt);
+            }
+        });
         jMenuBar2.add(jMenu17);
 
         setJMenuBar(jMenuBar2);
@@ -252,10 +263,10 @@ public class FrmMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuControleClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuControleClientesActionPerformed
         Frmcliente tela = new Frmcliente();
                 tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuControleClientesActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // Maximizando tela
@@ -264,44 +275,66 @@ public class FrmMenu extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_formWindowActivated
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menu_ControleFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_ControleFuncionariosActionPerformed
           FrmFuncionarios tela = new FrmFuncionarios();
                 tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menu_ControleFuncionariosActionPerformed
 
     private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
           FrmFuncionarios tela = new FrmFuncionarios();
                 tela.setVisible(true);
     }//GEN-LAST:event_jMenu8ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuControleFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuControleFornecedoresActionPerformed
        FrmFornecedores tela = new FrmFornecedores();
                 tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuControleFornecedoresActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void menuControleEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuControleEstoqueActionPerformed
        
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_menuControleEstoqueActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void menuConsultaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaProdutoActionPerformed
                 FrmProdutos tela = new FrmProdutos();
                 tela.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_menuConsultaProdutoActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void menu_pdvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_pdvActionPerformed
          FrmPDV tela = new FrmPDV();
                 tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_menu_pdvActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void menu_historicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_historicoActionPerformed
        FrmHistorico tela = new FrmHistorico();
                 tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_menu_historicoActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void menu_posicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_posicaoActionPerformed
          FrmTotalVenda tela = new FrmTotalVenda();
                 tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_menu_posicaoActionPerformed
+
+    private void menuTrocaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTrocaUsuarioActionPerformed
+        // Efetuar Logout
+        
+        FrmLogin telalogin = new FrmLogin();
+        this.dispose();
+        
+        telalogin.setVisible(true);
+        
+    }//GEN-LAST:event_menuTrocaUsuarioActionPerformed
+
+    private void jMenu17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu17MouseClicked
+        // Sair do sistema
+        
+        int op;
+        
+        op = JOptionPane.showConfirmDialog(null,"Você tem certeza que deseja sair?");
+        
+        if(op == 0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMenu17MouseClicked
 
     /**
      * @param args the command line arguments
@@ -350,7 +383,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu13;
     private javax.swing.JMenu jMenu14;
-    private javax.swing.JMenu jMenu15;
+    public javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu16;
     private javax.swing.JMenu jMenu17;
     private javax.swing.JMenu jMenu8;
@@ -358,16 +391,16 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuBar jMenuBar4;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JMenuItem menuConsultaProduto;
+    private javax.swing.JMenuItem menuControleClientes;
+    private javax.swing.JMenuItem menuControleEstoque;
+    private javax.swing.JMenuItem menuControleFornecedores;
+    private javax.swing.JMenuItem menuTrocaUsuario;
+    public javax.swing.JMenuItem menu_ControleFuncionarios;
+    public javax.swing.JMenuItem menu_historico;
+    private javax.swing.JMenuItem menu_pdv;
+    public javax.swing.JMenuItem menu_posicao;
     // End of variables declaration//GEN-END:variables
 }

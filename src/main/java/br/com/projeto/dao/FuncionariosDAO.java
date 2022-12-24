@@ -298,10 +298,26 @@ public class FuncionariosDAO {
             
             if(rs.next()){
                 //Usuario logou
-                JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
+                //caso usuario for Admin
+                if(rs.getString("nivel_acesso").equals("Administrador")){
+                    JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
                 FrmMenu tela = new FrmMenu();
                 tela.usuarioLogado = rs.getString("nome");
                 tela.setVisible(true);
+                }
+                //Apenas usuario
+                else if(rs.getString("nivel_acesso").equals("Usuário")){
+                    JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
+                    FrmMenu tela = new FrmMenu();
+                    tela.usuarioLogado = rs.getString("nome");
+                    
+                    //desabilitar os Menus
+                    tela.menu_posicao.setEnabled(false);
+                    tela.menu_ControleFuncionarios.setEnabled(false);
+                    tela.menu_historico.setEnabled(false);
+                     tela.setVisible(true);
+                }
+                
             }else{
                 //Dados incorretos
                 JOptionPane.showMessageDialog(null,"Dados incorretos!");
