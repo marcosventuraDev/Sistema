@@ -170,6 +170,11 @@ public class FrmPagamento extends javax.swing.JFrame {
 
         btnCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancelar1.setText("CANCELAR");
+        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelar1ActionPerformed(evt);
+            }
+        });
 
         txtObs.setColumns(20);
         txtObs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -213,7 +218,6 @@ public class FrmPagamento extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -360,6 +364,10 @@ public class FrmPagamento extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(null, "Venda Registrada com Sucesso");
         
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelar1ActionPerformed
 
     /**
      * @param args the command line arguments
