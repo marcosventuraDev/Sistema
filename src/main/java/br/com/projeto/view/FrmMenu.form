@@ -43,7 +43,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joaom\OneDrive\Documentos\NetBeansProjects\Projeto_Vendas\src\main\java\images\clientes.png"/>
+              <Image iconType="3" name="/imgades/clientes.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
@@ -52,9 +52,6 @@
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+C"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\joaom\OneDrive\Documentos\NetBeansProjects\Projeto_Vendas\src\main\java\images\novo.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Controle de Clientes"/>
               </Properties>
@@ -67,7 +64,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joaom\OneDrive\Documentos\NetBeansProjects\Projeto_Vendas\src\main\java\images\funcionarios.png"/>
+              <Image iconType="3" name="/imgades/funcionarios.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
           </Properties>
@@ -94,7 +91,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu13">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joaom\OneDrive\Documentos\NetBeansProjects\Projeto_Vendas\src\main\java\images\fornecedores.png"/>
+              <Image iconType="3" name="/imgades/fornecedores.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fornecedores"/>
           </Properties>
@@ -115,7 +112,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu14">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joaom\OneDrive\Documentos\NetBeansProjects\Projeto_Vendas\src\main\java\images\produtos.png"/>
+              <Image iconType="3" name="/imgades/produtos.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Produtos"/>
           </Properties>
@@ -147,7 +144,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu15">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joaom\OneDrive\Documentos\NetBeansProjects\Projeto_Vendas\src\main\java\images\vendas.png"/>
+              <Image iconType="3" name="/imgades/vendas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Vendas"/>
           </Properties>
@@ -199,7 +196,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu16">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joaom\OneDrive\Documentos\NetBeansProjects\Projeto_Vendas\src\main\java\images\configuracoes.png"/>
+              <Image iconType="3" name="/imgades/configuracoes.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xf5;es"/>
           </Properties>
@@ -220,7 +217,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu17">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joaom\OneDrive\Documentos\NetBeansProjects\Projeto_Vendas\src\main\java\images\sair.png"/>
+              <Image iconType="3" name="/imgades/sair.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
@@ -279,7 +276,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="492" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="460" max="32767" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>

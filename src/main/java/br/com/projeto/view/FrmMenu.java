@@ -117,15 +117,14 @@ public class FrmMenu extends javax.swing.JFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 492, Short.MAX_VALUE)
+                .addGap(0, 460, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\clientes.png")); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgades/clientes.png"))); // NOI18N
         jMenu1.setText("Clientes");
 
         menuControleClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuControleClientes.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\novo.png")); // NOI18N
         menuControleClientes.setText("Controle de Clientes");
         menuControleClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +135,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu1);
 
-        jMenu8.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\funcionarios.png")); // NOI18N
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgades/funcionarios.png"))); // NOI18N
         jMenu8.setText("Funcionários");
         jMenu8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +154,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu8);
 
-        jMenu13.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\fornecedores.png")); // NOI18N
+        jMenu13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgades/fornecedores.png"))); // NOI18N
         jMenu13.setText("Fornecedores");
 
         menuControleFornecedores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -169,7 +168,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu13);
 
-        jMenu14.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\produtos.png")); // NOI18N
+        jMenu14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgades/produtos.png"))); // NOI18N
         jMenu14.setText("Produtos");
 
         menuControleEstoque.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -192,7 +191,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu14);
 
-        jMenu15.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\vendas.png")); // NOI18N
+        jMenu15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgades/vendas.png"))); // NOI18N
         jMenu15.setText("Vendas");
 
         menu_pdv.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -224,7 +223,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu15);
 
-        jMenu16.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\configuracoes.png")); // NOI18N
+        jMenu16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgades/configuracoes.png"))); // NOI18N
         jMenu16.setText("Configurações");
 
         menuTrocaUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -238,7 +237,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu16);
 
-        jMenu17.setIcon(new javax.swing.ImageIcon("C:\\Users\\joaom\\OneDrive\\Documentos\\NetBeansProjects\\Projeto_Vendas\\src\\main\\java\\images\\sair.png")); // NOI18N
+        jMenu17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgades/sair.png"))); // NOI18N
         jMenu17.setText("Sair");
         jMenu17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
